@@ -1,0 +1,155 @@
+<div class="container">
+  <br>
+  <h1>Pipes</h1>
+  <br>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Variable</th>
+        <th scope="col">Pipes</th>
+        <th scope="col">Producto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{nombre }}</td>
+        <td>upperCase</td>
+        <td>{{nombre | uppercase}}</td>
+      </tr>
+      <tr>
+        <td>{{nombre }}</td>
+        <td>lowerCase</td>
+        <td>{{nombre | lowercase}}</td>
+      </tr>
+      <tr>
+        <td>{{nombre }}</td>
+        <td>slice: 3</td>
+        <td>{{nombre | slice:3}}</td>
+        <!--corta las n posiciones del nombre-->
+      </tr>
+      <tr>
+        <td>{{nombre }}</td>
+        <td>slice:0:3</td>
+        <td>{{nombre | slice:0:3}}</td>
+        <!--corta desde n hasta m posiciones del nombre -->
+      </tr>
+      <tr>
+        <td>{{arreglo }}</td>
+        <td>slice:1:5</td>
+        <td>{{arreglo | slice:1:5}}</td>
+        <!--corta desde n hasta m posiciones del nombre -->
+      </tr>
+      <tr>
+        <td>{{pi }}</td>
+        <td>number:'3.0-0'</td>
+        <td>{{pi | number:'3.0-0'}}</td>
+        <!-- selecciona la cantidad de enteros y decimales que le pongamos -->
+      </tr>
+      <tr>
+        <td>{{pi }}</td>
+        <td>number:'1.0-2'</td>
+        <td>{{pi | number:'1.0-2'}}</td>
+        <!--lo mismo de arriba -->
+      </tr>
+      <tr>
+        <td>{{porcentaje }}</td>
+        <td>percent</td>
+        <td>{{porcentaje | percent}}</td>
+        <!--convierte a porcentaje -->
+      </tr>
+      <tr>
+        <td>{{porcentaje }}</td>
+        <td>percent:'1.0-2'</td>
+        <td>{{porcentaje | percent:'1.2-2'}}</td>
+        <!--convierte a porcentaje con 2 decimales-->
+      </tr>
+      <tr>
+        <td>{{dinero }}</td>
+        <td>currency</td>
+        <td>{{dinero | currency}}</td>
+        <!--convierte con las Inciiales de la moneda-->
+      </tr>
+      <tr>
+        <td>{{dinero }}</td>
+        <td>currency:'MXN'</td>
+        <td>{{dinero | currency:'MXN'}}</td>
+        <!--convierte con las Inciiales de la moneda-->
+      </tr>
+      <tr>
+        <td>{{dinero }}</td>
+        <td>currency:'MXN':true</td>
+        <td>{{dinero | currency:'MXN':true}}</td>
+        <!--convierte con las Inciiales de la moneda y simbolo-->
+      </tr>
+      <tr>
+        <td>{{dinero }}</td>
+        <td>currency:'MXN':true:'4.0-0'</td>
+        <td>{{dinero | currency:'MXN':true:'4.0-0'}}</td>
+        <!--convierte con las Inciiales de la moneda y simbolo-->
+      </tr>
+      <tr>
+        <td>{{dinero }}</td>
+        <td>number:'.2-2'</td>
+        <td>{{dinero | number:'.2-2'}}</td>
+        <!--convierte a numero,decimal-->
+      </tr>
+      <tr>
+        <td>{{valorPromesa }}</td>
+        <td>async</td>
+        <td>{{valorPromesa | async}}</td>
+        <!--se utiliza para las promesas ya que son asincronas-->
+      </tr>
+      <tr>
+        <td>{{fecha }}</td>
+        <td>date</td>
+        <td>{{fecha | date}}</td>
+        <!--se utiliza para las promesas ya que son asincronas-->
+      </tr>
+      <tr>
+        <td>{{fecha }}</td>
+        <td>date:'medium'</td>
+        <td>{{fecha | date:'medium'}}</td>
+        <!--se utiliza para las promesas ya que son asincronas-->
+      </tr>
+      <tr>
+        <td>{{fecha }}</td>
+        <td>date</td>
+        <td>{{fecha | date:'MMMM - y'}}</td>
+        <!--se utiliza para las promesas ya que son asincronas-->
+      </tr>
+      <tr>
+        <td>{{ nombre2 }}</td>
+        <td>capitalizado (personalizado)</td>
+        <td>{{ nombre2 | capitalizado }}</td>
+        <!--se utiliza para las promesas ya que son asincronas-->
+      </tr>
+      <tr>
+        <td>{{nombre}}</td>
+        <td>contrasena: {{activar}}
+          <br>
+          <button (click) = "activar = !activar" class="btn btn-outline-primary">Activar/desactivar</button>
+
+        </td>
+        <td>{{nombre | contrasenaPipe:activar}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Slice</h3>
+  <ul>
+    <li *ngFor="let item of arreglo | slice:5:20">{{item}}</li>
+  </ul>
+
+  <h4>JSON</h4>
+  <pre>
+      {{heroe | json}}
+  </pre>
+
+</div>
+
+<h4>Youtube <small>Video</small></h4>
+<hr>
+<iframe width="560" height="315" [src]="video | domseguroPipe:'https://www.youtube.com/embed/'" frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<br><br><br><br><br><br><br><br>
